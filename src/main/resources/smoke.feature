@@ -1,5 +1,3 @@
-
-
 @Smoke
 Feature: As a user
     User want to test all main site functionality
