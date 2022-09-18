@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="JavaTestFrameworkTA-master" />
+        <module name="PastProject-Java-Maven-JUnit-Cucumber-PageFactory" />
         <module name="JavaTestFrameworkTA" />
       </profile>
     </annotationProcessing>

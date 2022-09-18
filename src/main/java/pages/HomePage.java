@@ -16,4 +16,8 @@ public class HomePage extends BasePage {
     public void openHomePage(String url) {
         driver.get(url);
     }
+
+    public boolean isRightHeaderVisible() {
+        return header.isDisplayed();
+    }
 }
