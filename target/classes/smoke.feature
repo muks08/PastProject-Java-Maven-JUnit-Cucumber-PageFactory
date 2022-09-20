@@ -1,3 +1,4 @@
+
 @Smoke
 Feature: As a user
     User want to test all main site functionality
@@ -6,8 +7,9 @@ Feature: As a user
 
   Scenario Outline: Check if the element "cropp" is visible
     Given User opens '<homePage>' page
-    Then User checks whether 'cropp' is written in the header of the site
+    And User accepts cookies
+    Then User checks whether header is visible of the site
 
     Examples:
-      |homePage|
-      |https://www.cropp.com/ua/uk/|
+    |homePage                     |
+    |https://www.cropp.com/ua/uk/ |

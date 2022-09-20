@@ -17,7 +17,4 @@ public class BasePage {
         new WebDriverWait(driver, timeToWait).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
-
-    public void isRightHeaderVisible() {
-    }
 }
