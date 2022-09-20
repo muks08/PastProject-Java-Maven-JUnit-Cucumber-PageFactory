@@ -71,8 +71,14 @@ public class DefinitionSteps {
     }
 
     @Then("User checks if the elements on page contains word {string} more than {string}")
-    public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTimes() {
+    public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTimes(String keyWord, int times) {
         List<WebElement> allElements = allMenShoesPage.getAllElements();
-
+        int count = 0;
+        for (WebElement element : allElements) {
+            if (element.getText().contains(keyWord)) {
+                count += 1;
+            }
+        }
+        assertTrue(count > times);
     }
 }
