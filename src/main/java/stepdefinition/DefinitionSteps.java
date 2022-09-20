@@ -8,9 +8,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.*;
+
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -64,9 +67,12 @@ public class DefinitionSteps {
     public void userClicksAllForMen() {
         homePage.clickOnTabShoesAllMen();
         allMenShoesPage = pageFactoryManager.getAllMenShoesPage();
+        allMenShoesPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
     }
 
     @Then("User checks if the elements on page contains word {string} more than {string}")
     public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTimes() {
+        List<WebElement> allElements = allMenShoesPage.getAllElements();
+
     }
 }
