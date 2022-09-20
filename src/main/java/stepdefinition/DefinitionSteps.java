@@ -5,10 +5,12 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
+import org.openqa.selenium.interactions.Actions;
+import pages.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -20,6 +22,7 @@ public class DefinitionSteps {
 
     WebDriver driver;
     HomePage homePage;
+    AllMenShoesPage allMenShoesPage;
     PageFactoryManager pageFactoryManager;
 
     @Before
@@ -41,14 +44,29 @@ public class DefinitionSteps {
         homePage.openHomePage(url);                     
     }
 
-    @Then("User checks whether header is visible of the site")
-    public void userChecksWhetherHeaderIsVisibleOfTheSite() {
-        homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
-        assertTrue(homePage.isRightHeaderVisible());
-    }
-
     @And("User accepts cookies")
     public void userAcceptsCookies() {
         homePage.cookieAccept();
+    }
+    
+    @Then("User checks whether header is visible")
+    public void userChecksWhetherHeaderIsVisible() {
+        homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        assertTrue(homePage.isRightHeaderVisible());
+    }
+    
+    @When("User moves a cursor to the tab menu Shoes")
+    public void userMovesACursorToTheTabMenuShoes() {
+        homePage.moveToElement();
+    }
+
+    @And("User clicks All for men")
+    public void userClicksAllForMen() {
+        homePage.clickOnTabShoesAllMen();
+        allMenShoesPage = pageFactoryManager.getAllMenShoesPage();
+    }
+
+    @Then("User checks if the elements on page contains word {string} more than {string}")
+    public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTimes() {
     }
 }
