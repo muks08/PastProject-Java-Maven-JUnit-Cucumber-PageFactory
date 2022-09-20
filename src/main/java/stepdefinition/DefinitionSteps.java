@@ -75,10 +75,25 @@ public class DefinitionSteps {
         List<WebElement> allElements = allMenShoesPage.getAllElements();
         int count = 0;
         for (WebElement element : allElements) {
+            System.out.println(element);
             if (element.getText().contains(keyWord)) {
                 count += 1;
             }
         }
         assertTrue(count > times);
+    }
+
+    @Then("User checks if the elements on page contains word more than")
+    public void userChecksIfTheElementsOnPageContainsWordMoreThan() {
+        List<WebElement> allElements = allMenShoesPage.getAllElements();
+        int count = 0;
+        for (WebElement element : allElements) {
+
+            if (element.getText().contains("Кеди")) {
+                count += 1;
+                System.out.println(element.getText());
+            }
+        }
+        System.out.println(count);
     }
 }

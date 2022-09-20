@@ -12,7 +12,7 @@ public class AllMenShoesPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//section[@id='categoryProducts']")
+    @FindBy(xpath = "//h3[@class='sc-eCstlR eUervm es-product-name']")
     private List<WebElement> allElements;
 
     public List<WebElement> getAllElements() {
