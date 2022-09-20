@@ -19,8 +19,8 @@ Feature: As a user
     And User accepts cookies
     When User moves a cursor to the tab menu Shoes
     And User clicks All for men
-    Then User checks if the elements on page contains word more than
+    Then User checks if the elements on page contains word '<keyWord>'more than ten times
 
     Examples:
-      |homePage                     |
-      |https://www.cropp.com/ua/uk/ |
+      |homePage                     |keyWord|
+      |https://www.cropp.com/ua/uk/ |Кеди   |

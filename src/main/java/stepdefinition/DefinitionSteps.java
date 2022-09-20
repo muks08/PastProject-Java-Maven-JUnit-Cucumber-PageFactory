@@ -70,30 +70,15 @@ public class DefinitionSteps {
         allMenShoesPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
     }
 
-    @Then("User checks if the elements on page contains word {string} more than {string}")
-    public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTimes(String keyWord, int times) {
+    @Then("User checks if the elements on page contains word {string}more than ten times")
+    public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTenTimes(String keyWord) {
         List<WebElement> allElements = allMenShoesPage.getAllElements();
         int count = 0;
         for (WebElement element : allElements) {
-            System.out.println(element);
             if (element.getText().contains(keyWord)) {
                 count += 1;
             }
         }
-        assertTrue(count > times);
-    }
-
-    @Then("User checks if the elements on page contains word more than")
-    public void userChecksIfTheElementsOnPageContainsWordMoreThan() {
-        List<WebElement> allElements = allMenShoesPage.getAllElements();
-        int count = 0;
-        for (WebElement element : allElements) {
-
-            if (element.getText().contains("Кеди")) {
-                count += 1;
-                System.out.println(element.getText());
-            }
-        }
-        System.out.println(count);
+        assertTrue(count > 10);
     }
 }
