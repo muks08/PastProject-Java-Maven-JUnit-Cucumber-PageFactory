@@ -10,7 +10,6 @@ import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import pages.*;
 
 import java.util.List;
@@ -79,6 +78,7 @@ public class DefinitionSteps {
                 count += 1;
             }
         }
+
         assertTrue(count > 10);
     }
 }
