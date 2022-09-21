@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 public class AllStoresPage extends BasePage {
 
     public AllStoresPage(WebDriver driver) {
@@ -15,8 +13,13 @@ public class AllStoresPage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Polska')]")
     private WebElement poland;
 
-    public void ChangeLocationToPoland() {
-        poland.click();
-    }
+    @FindBy(xpath = "//*[contains(text(), 'Italia')]")
+    private WebElement italy;
 
+    public void ChangeLocation(String location) {
+        if (location.equals("Poland"))
+        {poland.click();}
+        if (location.equals("Italy"))
+        {italy.click();}
+    }
 }

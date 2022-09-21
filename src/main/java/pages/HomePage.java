@@ -14,12 +14,6 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@id='headerWrapper']")
     private WebElement header;
 
-    @FindBy(xpath = "//div[@id='cookiebanner']")
-    private WebElement cookieBanner;
-
-    @FindBy(xpath = "//button[@id='cookiebotDialogOkButton']")
-    private WebElement cookiebotDialogOkButton;
-
     @FindBy(xpath = "//header/div/div/ul/li/a[@href='https://www.cropp.com/ua/uk/vzuttia']")
     private WebElement tabShoes;
 
@@ -33,18 +27,12 @@ public class HomePage extends BasePage {
         driver.get(url);
     }
 
-    public void cookieAccept() {
-        if (cookieBanner.isDisplayed())cookiebotDialogOkButton.click();
-    }
-
     public boolean isRightHeaderVisible() {
         return header.isDisplayed();
     }
 
     public void moveToElement() {
-        new Actions(driver)
-                .moveToElement(tabShoes)
-                .perform();
+        new Actions(driver).moveToElement(tabShoes).perform();
     }
 
     public void clickOnTabShoesAllMen() {
@@ -53,5 +41,4 @@ public class HomePage extends BasePage {
 
     public void changeLanguage() {
         languageButton.click();}
-
 }

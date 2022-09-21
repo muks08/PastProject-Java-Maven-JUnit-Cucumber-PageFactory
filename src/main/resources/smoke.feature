@@ -27,13 +27,14 @@ Feature: As a user
       |https://www.cropp.com/ua/uk/|Кеди   |
 
 
-  Scenario Outline: Check location and language change working correctly
+  Scenario Outline: Check that location and language change working correctly
     Given User opens '<homePage>' page
     And User accepts cookies
     When User clicks Language button
     And User changes location to '<location>'
-    Then User checks that url of the '<homePage>' has changed to '<expectedUrl>'
+    Then User checks that url has changed to '<expectedUrl>'
 
     Examples:
-      |homePage                    |location|expectedUrl               |
+      |homePage                    |location|expectedUrl                 |
       |https://www.cropp.com/ua/uk/|Poland  |https://www.cropp.com/pl/pl/|
+      |https://www.cropp.com/ua/uk/|Italy   |https://www.cropp.com/it/it/|

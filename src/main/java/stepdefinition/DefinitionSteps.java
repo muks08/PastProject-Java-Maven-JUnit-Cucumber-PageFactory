@@ -12,7 +12,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -87,12 +86,13 @@ public class DefinitionSteps {
     }
 
     @And("User changes location to {string}")
-    public void userChangesLocationToLocation() {
-        allStoresPage.ChangeLocationToPoland();
+    public void userChangesLocationToLocation(String location) {
+        allStoresPage.ChangeLocation(location);
     }
 
-    @Then("User checks that url of the {string} has changed to {string}")
-    public void userChecksThatUrlOfTheHomePageHasChangedToExpectedPage(String expectedUrl) {
+    @Then("User checks that url has changed to {string}")
+    public void userChecksThatUrlHasChangedToExpectedUrl(String expectedUrl) {
+        homePage = pageFactoryManager.getHomePage();
         homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
         assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
