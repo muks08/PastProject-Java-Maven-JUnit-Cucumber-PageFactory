@@ -10,22 +10,13 @@ import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-<<<<<<< HEAD:src/test/java/stepdefinition/DefinitionSteps.java
-import pages.HomePage;
-
-import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-=======
 import pages.*;
->>>>>>> muksbranch:src/main/java/stepdefinition/DefinitionSteps.java
 
-import java.util.ArrayList;
-import java.util.List;
-
+import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
+
+import java.util.List;
 
 public class DefinitionSteps {
 
@@ -64,8 +55,6 @@ public class DefinitionSteps {
     public void userChecksWhetherHeaderIsVisible() {
         homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
         assertTrue(homePage.isRightHeaderVisible());
-<<<<<<< HEAD:src/test/java/stepdefinition/DefinitionSteps.java
-=======
     }
     
     @When("User moves a cursor to the tab menu Shoes")
@@ -85,6 +74,5 @@ public class DefinitionSteps {
         List<WebElement> allElements = allMenShoesPage.getAllElements();
         long count = allElements.stream().filter(element -> element.getText().contains(keyWord)).count();
         assertTrue(count > 10);
->>>>>>> muksbranch:src/main/java/stepdefinition/DefinitionSteps.java
     }
 }
