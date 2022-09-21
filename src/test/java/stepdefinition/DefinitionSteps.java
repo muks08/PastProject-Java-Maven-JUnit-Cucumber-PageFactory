@@ -5,16 +5,26 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+<<<<<<< HEAD:src/test/java/stepdefinition/DefinitionSteps.java
 import pages.HomePage;
 
 import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+=======
+import pages.*;
+>>>>>>> muksbranch:src/main/java/stepdefinition/DefinitionSteps.java
 
+import java.util.ArrayList;
+import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 
 public class DefinitionSteps {
@@ -23,6 +33,7 @@ public class DefinitionSteps {
 
     WebDriver driver;
     HomePage homePage;
+    AllMenShoesPage allMenShoesPage;
     PageFactoryManager pageFactoryManager;
 
     @Before
@@ -44,9 +55,36 @@ public class DefinitionSteps {
         homePage.openHomePage(url);                     
     }
 
-    @Then("User checks whether {string} is written in the header of the site")
-    public void userChecksHeader() {
+    @And("User accepts cookies")
+    public void userAcceptsCookies() {
+        homePage.cookieAccept();
+    }
+    
+    @Then("User checks whether header is visible")
+    public void userChecksWhetherHeaderIsVisible() {
         homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
         assertTrue(homePage.isRightHeaderVisible());
+<<<<<<< HEAD:src/test/java/stepdefinition/DefinitionSteps.java
+=======
+    }
+    
+    @When("User moves a cursor to the tab menu Shoes")
+    public void userMovesACursorToTheTabMenuShoes() {
+        homePage.moveToElement();
+    }
+
+    @And("User clicks All for men")
+    public void userClicksAllForMen() {
+        homePage.clickOnTabShoesAllMen();
+        allMenShoesPage = pageFactoryManager.getAllMenShoesPage();
+        allMenShoesPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+    }
+
+    @Then("User checks if the elements on page contains word {string}more than ten times")
+    public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTenTimes(String keyWord) {
+        List<WebElement> allElements = allMenShoesPage.getAllElements();
+        long count = allElements.stream().filter(element -> element.getText().contains(keyWord)).count();
+        assertTrue(count > 10);
+>>>>>>> muksbranch:src/main/java/stepdefinition/DefinitionSteps.java
     }
 }
