@@ -26,6 +26,8 @@ public class DefinitionSteps {
     WebDriver driver;
     HomePage homePage;
     AllMenShoesPage allMenShoesPage;
+
+    AllStoresPage allStoresPage;
     PageFactoryManager pageFactoryManager;
 
     @Before
@@ -75,5 +77,23 @@ public class DefinitionSteps {
         List<WebElement> allElements = allMenShoesPage.getAllElements();
         long count = allElements.stream().filter(element -> element.getText().contains(keyWord)).count();
         assertTrue(count > 10);
+    }
+
+    @When("User clicks Language button")
+    public void userClicksLanguageButton() {
+        homePage.changeLanguage();
+        allStoresPage = pageFactoryManager.getAllStoresPage();
+        allStoresPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+    }
+
+    @And("User changes location to {string}")
+    public void userChangesLocationToLocation() {
+        allStoresPage.ChangeLocationToPoland();
+    }
+
+    @Then("User checks that url of the {string} has changed to {string}")
+    public void userChecksThatUrlOfTheHomePageHasChangedToExpectedPage(String expectedUrl) {
+        homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
 }

@@ -14,7 +14,8 @@ Feature: As a user
       |homePage                    |
       |https://www.cropp.com/ua/uk/|
 
-  Scenario Outline: Check if the elements contains word <keyWord> more than <times>
+
+  Scenario Outline: Check if the elements contains word <keyWord> more than ten times
     Given User opens '<homePage>' page
     And User accepts cookies
     When User moves a cursor to the tab menu Shoes
@@ -24,3 +25,15 @@ Feature: As a user
     Examples:
       |homePage                    |keyWord|
       |https://www.cropp.com/ua/uk/|Кеди   |
+
+
+  Scenario Outline: Check location and language change working correctly
+    Given User opens '<homePage>' page
+    And User accepts cookies
+    When User clicks Language button
+    And User changes location to '<location>'
+    Then User checks that url of the '<homePage>' has changed to '<expectedUrl>'
+
+    Examples:
+      |homePage                    |location|expectedUrl               |
+      |https://www.cropp.com/ua/uk/|Poland  |https://www.cropp.com/pl/pl/|

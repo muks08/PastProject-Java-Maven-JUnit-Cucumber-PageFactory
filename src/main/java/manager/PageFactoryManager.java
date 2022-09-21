@@ -11,4 +11,6 @@ public class PageFactoryManager {
     public HomePage getHomePage(){return new HomePage(driver);}
 
     public AllMenShoesPage getAllMenShoesPage(){return new AllMenShoesPage(driver);}
+
+    public AllStoresPage getAllStoresPage(){return new AllStoresPage(driver);}
 }
