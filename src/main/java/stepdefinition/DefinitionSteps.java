@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -72,13 +73,7 @@ public class DefinitionSteps {
     @Then("User checks if the elements on page contains word {string}more than ten times")
     public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTenTimes(String keyWord) {
         List<WebElement> allElements = allMenShoesPage.getAllElements();
-        int count = 0;
-        for (WebElement element : allElements) {
-            if (element.getText().contains(keyWord)) {
-                count += 1;
-            }
-        }
-
+        long count = allElements.stream().filter(element -> element.getText().contains(keyWord)).count();
         assertTrue(count > 10);
     }
 }

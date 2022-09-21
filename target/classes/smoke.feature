@@ -11,8 +11,8 @@ Feature: As a user
     Then User checks whether header is visible
 
     Examples:
-    |homePage                     |
-    |https://www.cropp.com/ua/uk/ |
+      |homePage                    |
+      |https://www.cropp.com/ua/uk/|
 
   Scenario Outline: Check if the elements contains word <keyWord> more than <times>
     Given User opens '<homePage>' page
@@ -22,5 +22,5 @@ Feature: As a user
     Then User checks if the elements on page contains word '<keyWord>'more than ten times
 
     Examples:
-      |homePage                     |keyWord|
-      |https://www.cropp.com/ua/uk/ |Кеди   |
+      |homePage                    |keyWord|
+      |https://www.cropp.com/ua/uk/|Кеди   |
