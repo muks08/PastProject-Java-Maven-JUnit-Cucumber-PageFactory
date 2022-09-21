@@ -27,7 +27,7 @@ Feature: As a user
       |https://www.cropp.com/ua/uk/|Кеди   |
 
 
-  Scenario Outline: Check location and language change working correctly
+  Scenario Outline: Check that location and language change working correctly
     Given User opens '<homePage>' page
     And User accepts cookies
     When User clicks Language button
