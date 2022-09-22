@@ -13,9 +13,23 @@ public class AllMenShoesPage extends BasePage {
     }
 
     @FindBy(xpath = "//h3[@class='sc-eCstlR eUervm es-product-name']")
-    private List<WebElement> allElements;
+    private List<WebElement> allProductName;
 
-    public List<WebElement> getAllElements() {
-        return allElements;
+    @FindBy(xpath = "//section[@class='sc-gsTEea kxkGu es-product-price']")
+    private List<WebElement> allProductPrice;
+
+    @FindBy(xpath = "//figcaption[@class='sc-hKgJUU dGyDEC']")
+    private List<WebElement> allProductNameWithPrice;
+
+    public List<WebElement> getAllProductName() {
+        return allProductName;
+    }
+
+    public List<WebElement> getAllProductPrice() {
+        return allProductPrice;
+    }
+
+    public List<WebElement> getAllProductNameWithPrice() {
+        return allProductNameWithPrice;
     }
 }

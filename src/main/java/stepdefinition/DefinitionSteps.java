@@ -1,5 +1,6 @@
 package stepdefinition;
 
+import classes.Product;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -12,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -73,8 +75,8 @@ public class DefinitionSteps {
 
     @Then("User checks if the elements on page contains word {string}more than ten times")
     public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTenTimes(String keyWord) {
-        List<WebElement> allElements = allMenShoesPage.getAllElements();
-        long count = allElements.stream().filter(element -> element.getText().contains(keyWord)).count();
+        List<WebElement> allProductName = allMenShoesPage.getAllProductName();
+        long count = allProductName.stream().filter(element -> element.getText().contains(keyWord)).count();
         assertTrue(count > 10);
     }
 
@@ -95,5 +97,17 @@ public class DefinitionSteps {
         homePage = pageFactoryManager.getHomePage();
         homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
         assertEquals(driver.getCurrentUrl(), expectedUrl);
+    }
+
+    @Then("User checks")
+    public void userChecks() {
+        allMenShoesPage = pageFactoryManager.getAllMenShoesPage();
+        allMenShoesPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        List<WebElement> allProductName = allMenShoesPage.getAllProductName();
+        allProductName.forEach(x -> System.out.println(x.getText()));
+        List<WebElement> allProductPrice = allMenShoesPage.getAllProductPrice();
+        allProductPrice.forEach(x -> System.out.println(x.getText()));
+        List<WebElement> allProductNameWithPrice = allMenShoesPage.getAllProductNameWithPrice();
+        allProductNameWithPrice.forEach(x -> System.out.println(x.getText()));
     }
 }

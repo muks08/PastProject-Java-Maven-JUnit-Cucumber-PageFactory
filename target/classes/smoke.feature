@@ -38,3 +38,13 @@ Feature: As a user
       |homePage                    |location|expectedUrl                 |
       |https://www.cropp.com/ua/uk/|Poland  |https://www.cropp.com/pl/pl/|
       |https://www.cropp.com/ua/uk/|Italy   |https://www.cropp.com/it/it/|
+
+
+  Scenario Outline: Check if product with name ... and price
+    Given User opens '<homePage>' page
+    And User accepts cookies
+    Then User checks
+
+    Examples:
+      |homePage                                       |
+      |https://www.cropp.com/ua/uk/vzuttia/cholovikam |
