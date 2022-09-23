@@ -10,37 +10,37 @@ import java.util.List;
 
 public class AllMenShoesPage extends BasePage {
 
-    public AllMenShoesPage(WebDriver driver) {
-        super(driver);
-    }
+	public AllMenShoesPage(WebDriver driver) {
+		super(driver);
+	}
 
-    @FindBy(xpath = "//h3[@class='sc-eCstlR eUervm es-product-name']")
-    private List<WebElement> allProductName;
+	@FindBy(xpath = "//h3[@class='sc-eCstlR eUervm es-product-name']")
+	private List<WebElement> allProductName;
 
-    @FindBy(xpath = "//section[@class='sc-gsTEea kxkGu es-product-price']")
-    private List<WebElement> allProductPrice;
+	@FindBy(xpath = "//section[@class='sc-gsTEea kxkGu es-product-price']")
+	private List<WebElement> allProductPrice;
 
-    @FindBy(xpath = "//figcaption[@class='sc-hKgJUU dGyDEC']")
-    private List<WebElement> allProductNameWithPrice;
+	@FindBy(xpath = "//figcaption[@class='sc-hKgJUU dGyDEC']")
+	private List<WebElement> allProductNameWithPrice;
 
-    public List<WebElement> getAllProductName() {
-        return allProductName;
-    }
+	public List<WebElement> getAllProductName() {
+		return allProductName;
+	}
 
-    public List<WebElement> getAllProductPrice() {
-        return allProductPrice;
-    }
+	public List<WebElement> getAllProductPrice() {
+		return allProductPrice;
+	}
 
-    public List<Product> getProductsList(List<WebElement> listName, List<WebElement> listPrice) {
-        List<Product> productList = new ArrayList<>();
-        for (int i = 0; i < listName.size(); i++) {
-            Product temp = new Product();
-            temp.setName(listName.get(i).getText());
-            temp.setPrice(Integer.parseInt((listPrice.get(i)
-                    .getText().replaceAll(" ", "")
-                    .split("U", 2)[0])));
-            productList.add(temp);
-        }
-        return productList;
-    }
+	public List<Product> getProductsList(List<WebElement> listName, List<WebElement> listPrice) {
+		List<Product> productList = new ArrayList<>();
+		for (int i = 0; i < listName.size(); i++) {
+			Product temp = new Product();
+			temp.setName(listName.get(i).getText());
+			temp.setPrice(Integer.parseInt((listPrice.get(i)
+					.getText().replaceAll(" ", "")
+					.split("U", 2)[0])));
+			productList.add(temp);
+		}
+		return productList;
+	}
 }

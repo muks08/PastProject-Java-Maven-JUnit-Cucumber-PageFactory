@@ -9,36 +9,36 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
-    protected WebDriver driver;
+	protected WebDriver driver;
 
-    @FindBy(xpath = "//div[@id='cookiebanner']")
-    private WebElement cookieBanner;
+	@FindBy(xpath = "//div[@id='cookiebanner']")
+	private WebElement cookieBanner;
 
-    @FindBy(xpath = "//button[@id='cookiebotDialogOkButton']")
-    private WebElement cookiebotDialogOkButton;
+	@FindBy(xpath = "//button[@id='cookiebotDialogOkButton']")
+	private WebElement cookiebotDialogOkButton;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
+	public BasePage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
 
-    public void cookieAccept() {
-        if (cookieBanner.isDisplayed())cookiebotDialogOkButton.click();
-    }
+	public void cookieAccept() {
+		if (cookieBanner.isDisplayed())cookiebotDialogOkButton.click();
+	}
 
-    public void waitForPageLoadComplete(long timeToWait) {
-        new WebDriverWait(driver, timeToWait).until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-    }
+	public void waitForPageLoadComplete(long timeToWait) {
+		new WebDriverWait(driver, timeToWait).until(
+				webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+	}
 
-    public void waitForAjaxComplete(long timeToWait){
-        new WebDriverWait(driver, timeToWait).until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript(
-                        "return window.jQuery != undefined && jQuery.active == 0;"));
-    }
+	public void waitForAjaxComplete(long timeToWait){
+		new WebDriverWait(driver, timeToWait).until(
+				webDriver -> ((JavascriptExecutor) webDriver).executeScript(
+						"return window.jQuery != undefined && jQuery.active == 0;"));
+	}
 
-    public void waitVisibilityOfElement(long timeToWait, WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, timeToWait);
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }
+	public void waitVisibilityOfElement(long timeToWait, WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, timeToWait);
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
 }

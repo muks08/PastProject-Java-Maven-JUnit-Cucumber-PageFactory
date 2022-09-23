@@ -7,38 +7,38 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
+	public HomePage(WebDriver driver) {
+		super(driver);
+	}
 
-    @FindBy(xpath = "//div[@id='headerWrapper']")
-    private WebElement header;
+	@FindBy(xpath = "//div[@id='headerWrapper']")
+	private WebElement header;
 
-    @FindBy(xpath = "//header/div/div/ul/li/a[@href='https://www.cropp.com/ua/uk/vzuttia']")
-    private WebElement tabShoes;
+	@FindBy(xpath = "//header/div/div/ul/li/a[@href='https://www.cropp.com/ua/uk/vzuttia']")
+	private WebElement tabShoes;
 
-    @FindBy(xpath = "//header/div/div/ul/li/ul/div/a[@href='https://www.cropp.com/ua/uk/vzuttia/cholovikam']")
-    private WebElement tabShoesAllMen;
+	@FindBy(xpath = "//header/div/div/ul/li/ul/div/a[@href='https://www.cropp.com/ua/uk/vzuttia/cholovikam']")
+	private WebElement tabShoesAllMen;
 
-    @FindBy(xpath = "//span[@data-testid='store-switcher']")
-    private WebElement languageButton;
+	@FindBy(xpath = "//span[@data-testid='store-switcher']")
+	private WebElement languageButton;
 
-    public void openHomePage(String url) {
-        driver.get(url);
-    }
+	public void openHomePage(String url) {
+		driver.get(url);
+	}
 
-    public boolean isRightHeaderVisible() {
-        return header.isDisplayed();
-    }
+	public boolean isRightHeaderVisible() {
+		return header.isDisplayed();
+	}
 
-    public void moveToElement() {
-        new Actions(driver).moveToElement(tabShoes).perform();
-    }
+	public void moveToElement() {
+		new Actions(driver).moveToElement(tabShoes).perform();
+	}
 
-    public void clickOnTabShoesAllMen() {
-        tabShoesAllMen.click();
-    }
+	public void clickOnTabShoesAllMen() {
+		tabShoesAllMen.click();
+	}
 
-    public void changeLanguage() {
-        languageButton.click();}
+	public void changeLanguage() {
+		languageButton.click();}
 }
