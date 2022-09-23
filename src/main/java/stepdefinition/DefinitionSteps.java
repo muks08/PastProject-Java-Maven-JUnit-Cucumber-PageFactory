@@ -105,15 +105,14 @@ public class DefinitionSteps {
     public void userChecks() {
         allMenShoesPage = pageFactoryManager.getAllMenShoesPage();
         allMenShoesPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
-        List<WebElement> allProductName = allMenShoesPage.getAllProductName();
 
-        List<WebElement> allProductPrice = allMenShoesPage.getAllProductPrice();
-
-        List<Product> allProducts = allMenShoesPage.getProductsList(allProductName, allProductPrice);
+        List<Product> allProducts = allMenShoesPage.getProductsList
+                (allMenShoesPage.getAllProductName(), allMenShoesPage.getAllProductPrice());
         for (Product x : allProducts) {
+            System.out.println((x.getName()).getClass().getSimpleName());
             System.out.println(x.getName());
+            System.out.println((x.getPrice()).getClass().getSimpleName());
             System.out.println(x.getPrice());
-
         }
     }
 }

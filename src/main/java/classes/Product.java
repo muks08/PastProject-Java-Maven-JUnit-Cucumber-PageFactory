@@ -7,14 +7,14 @@ import java.util.List;
 public class Product {
 
 	private String name;
-	private String price;
+	private int price;
 
 	public Product() {
 		name = "default_name";
-		price = "default_price";
+		price = 0;
 	}
 
-	public Product(String name, String price) {
+	public Product(String name, Integer price) {
 		this.name = name;
 		this.price = price;
 	}
@@ -27,11 +27,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public String getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 }

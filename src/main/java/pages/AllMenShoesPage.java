@@ -31,16 +31,14 @@ public class AllMenShoesPage extends BasePage {
         return allProductPrice;
     }
 
-    public List<WebElement> getAllProductNameWithPrice() {
-        return allProductNameWithPrice;
-    }
-
     public List<Product> getProductsList(List<WebElement> listName, List<WebElement> listPrice) {
         List<Product> productList = new ArrayList<>();
         for (int i = 0; i < listName.size(); i++) {
             Product temp = new Product();
             temp.setName(listName.get(i).getText());
-            temp.setPrice(listPrice.get(i).getText());
+            temp.setPrice(Integer.parseInt((listPrice.get(i)
+                    .getText().replaceAll(" ", "")
+                    .split("U", 2)[0])));
             productList.add(temp);
         }
         return productList;
