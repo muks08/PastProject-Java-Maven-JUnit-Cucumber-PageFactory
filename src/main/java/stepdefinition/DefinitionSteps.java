@@ -27,6 +27,8 @@ public class DefinitionSteps {
     HomePage homePage;
     AllMenShoesPage allMenShoesPage;
 
+    CartPage cartPage;
+
     Product product;
 
     AllStoresPage allStoresPage;
@@ -131,5 +133,13 @@ public class DefinitionSteps {
     @And("User adds the product to the cart")
     public void addsTheProductToTheCart() {
         allMenShoesPage.addsTheProductToTheCart();
+    }
+
+    @Then("User goes to the shopping cart")
+    public void goesToTheShoppingCart() {
+        cartPage = pageFactoryManager.getCartPage();
+        cartPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        cartPage.goesToTheShoppingCart();
+
     }
 }

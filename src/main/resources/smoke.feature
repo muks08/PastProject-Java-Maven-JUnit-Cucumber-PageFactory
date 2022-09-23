@@ -57,9 +57,10 @@ Feature: As a user
     And User clicks on the first product
     And User clicks on the desired product size
     And User adds the product to the cart
+    Then User goes to the shopping cart
 
 
 
     Examples:
-      | homePage                    | cartItemsCount |
+      |homePage                    | cartItemsCount |
       |https://www.cropp.com/ua/uk/ | 1              |
