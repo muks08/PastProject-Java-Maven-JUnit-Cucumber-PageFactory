@@ -48,3 +48,18 @@ Feature: As a user
     Examples:
       |homePage                                       |
       |https://www.cropp.com/ua/uk/vzuttia/cholovikam |
+
+  Scenario Outline: Check that item added to cart correctly
+    Given User opens '<homePage>' page
+    And User accepts cookies
+    When User moves a cursor to the tab menu Shoes
+    And User clicks All for men
+    And User clicks on the first product
+    And User clicks on the desired product size
+    And User adds the product to the cart
+
+
+
+    Examples:
+      | homePage                    | cartItemsCount |
+      |https://www.cropp.com/ua/uk/ | 1              |

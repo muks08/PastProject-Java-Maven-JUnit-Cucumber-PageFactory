@@ -13,7 +13,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 import classes.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -115,5 +114,22 @@ public class DefinitionSteps {
             System.out.println(x.getPrice());
 
         }
+    }
+
+    @And("User clicks on the first product")
+    public void clicksOnTheFirstProduct() {
+        allMenShoesPage.clicksOnTheFirstProduct();
+
+    }
+
+    @And("User clicks on the desired product size")
+    public void clicksOnTheDesiredProductSize() {
+        allMenShoesPage.clicksOnTheDesiredProductSize();
+
+    }
+
+    @And("User adds the product to the cart")
+    public void addsTheProductToTheCart() {
+        allMenShoesPage.addsTheProductToTheCart();
     }
 }

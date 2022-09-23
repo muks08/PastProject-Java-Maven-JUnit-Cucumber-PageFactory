@@ -10,6 +10,8 @@ import java.util.List;
 
 public class AllMenShoesPage extends BasePage {
 
+
+
     public AllMenShoesPage(WebDriver driver) {
         super(driver);
     }
@@ -22,6 +24,27 @@ public class AllMenShoesPage extends BasePage {
 
     @FindBy(xpath = "//figcaption[@class='sc-hKgJUU dGyDEC']")
     private List<WebElement> allProductNameWithPrice;
+
+    @FindBy(xpath = "//*[@id=\"categoryProducts\"]/article[1]/figure/a/img")
+    private WebElement firstProduct;
+
+    @FindBy(xpath = "//*[@id=\"productContainer\"]/section/div[2]/section[4]/div/ul/li[1]")
+    private WebElement sizeProduct;
+
+    @FindBy(xpath = "//*[@id=\"productContainer\"]/section/div[2]/section[5]/button/span")
+    private WebElement addCartButton;
+
+    public void addsTheProductToTheCart(){
+        addCartButton.click();
+    }
+
+    public void clicksOnTheDesiredProductSize(){
+        sizeProduct.click();
+    }
+
+    public void clicksOnTheFirstProduct(){
+        firstProduct.click();
+    }
 
     public List<WebElement> getAllProductName() {
         return allProductName;
