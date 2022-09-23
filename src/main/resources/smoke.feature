@@ -62,5 +62,5 @@ Feature: As a user
 
 
     Examples:
-      |homePage                    | cartItemsCount |
+      |homePage                     | cartItemsCount |
       |https://www.cropp.com/ua/uk/ | 1              |

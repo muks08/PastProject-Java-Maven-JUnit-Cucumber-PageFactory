@@ -9,7 +9,7 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//*[@id=\"ModalRoot-lyrhutsewp\"]/div/div[2]/div/div[2]/div[2]/a")
+    @FindBy(xpath = "//*[@id=\"headerWrapper\"]/div[2]/div[3]/button[3]")
     private WebElement cartButton;
 
     public void goesToTheShoppingCart(){
