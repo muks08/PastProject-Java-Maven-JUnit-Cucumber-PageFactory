@@ -13,8 +13,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 import classes.*;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -27,8 +27,6 @@ public class DefinitionSteps {
     WebDriver driver;
     HomePage homePage;
     AllMenShoesPage allMenShoesPage;
-
-    Product product;
 
     AllStoresPage allStoresPage;
     PageFactoryManager pageFactoryManager;
@@ -105,14 +103,19 @@ public class DefinitionSteps {
     public void userChecks() {
         allMenShoesPage = pageFactoryManager.getAllMenShoesPage();
         allMenShoesPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
-
         List<Product> allProducts = allMenShoesPage.getProductsList
                 (allMenShoesPage.getAllProductName(), allMenShoesPage.getAllProductPrice());
-        for (Product x : allProducts) {
-            System.out.println((x.getName()).getClass().getSimpleName());
-            System.out.println(x.getName());
-            System.out.println((x.getPrice()).getClass().getSimpleName());
-            System.out.println(x.getPrice());
-        }
+//        int count = 0;
+//        for (Product product : allProducts) {
+//            if (product.getName().contains("Кросівки") && product.getPrice() < 500) {
+//                count ++;
+//            }
+//        }
+        Predicate<Product> byPrice = product -> product.getPrice() < 500;
+        long count = allProducts.stream()
+                .filter(product -> product.getName()
+                .contains("Кросівки")).filter(byPrice)
+                .count();
+        assertEquals(0, count);
     }
 }

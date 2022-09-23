@@ -1,9 +1,5 @@
 package classes;
 
-import org.openqa.selenium.WebElement;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Product {
 
 	private String name;
