@@ -1,6 +1,5 @@
 package stepdefinition;
 
-import classes.Product;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -12,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
+import classes.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +27,8 @@ public class DefinitionSteps {
     WebDriver driver;
     HomePage homePage;
     AllMenShoesPage allMenShoesPage;
+
+    Product product;
 
     AllStoresPage allStoresPage;
     PageFactoryManager pageFactoryManager;
@@ -104,10 +106,14 @@ public class DefinitionSteps {
         allMenShoesPage = pageFactoryManager.getAllMenShoesPage();
         allMenShoesPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
         List<WebElement> allProductName = allMenShoesPage.getAllProductName();
-        allProductName.forEach(x -> System.out.println(x.getText()));
+
         List<WebElement> allProductPrice = allMenShoesPage.getAllProductPrice();
-        allProductPrice.forEach(x -> System.out.println(x.getText()));
-        List<WebElement> allProductNameWithPrice = allMenShoesPage.getAllProductNameWithPrice();
-        allProductNameWithPrice.forEach(x -> System.out.println(x.getText()));
+
+        List<Product> allProducts = allMenShoesPage.getProductsList(allProductName, allProductPrice);
+        for (Product x : allProducts) {
+            System.out.println(x.getName());
+            System.out.println(x.getPrice());
+
+        }
     }
 }
