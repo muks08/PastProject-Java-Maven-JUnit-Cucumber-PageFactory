@@ -15,19 +15,6 @@ Feature: As a user
       |https://www.cropp.com/ua/uk/|
 
 
-  Scenario Outline: Check if the elements contains word <keyWord> more than ten times
-    Given User opens '<homePage>' page
-    And User accepts cookies
-    When User moves a cursor to the tab menu Shoes
-    And User clicks All for men
-    Then User checks if the elements on page contains word '<keyWord>' more than ten times
-
-    Examples:
-      |homePage                    |keyWord |
-      |https://www.cropp.com/ua/uk/|Кеди    |
-      |https://www.cropp.com/ua/uk/|Кросівки|
-
-
   Scenario Outline: Check that location and language change working correctly
     Given User opens '<homePage>' page
     And User accepts cookies
@@ -41,11 +28,27 @@ Feature: As a user
       |https://www.cropp.com/ua/uk/|Italy   |https://www.cropp.com/it/it/|
 
 
+  Scenario Outline: Check if the elements contains word <keyWord> more than <times> times
+    Given User opens '<homePage>' page
+    And User accepts cookies
+    When User moves a cursor to the tab menu Shoes
+    And User clicks All for men
+    Then User checks if products on page contains word '<keyWord>' more than '<times>' times
+
+    Examples:
+      |homePage                    |keyWord |times|
+      |https://www.cropp.com/ua/uk/|Кеди    |10   |
+      |https://www.cropp.com/ua/uk/|Кросівки|20   |
+
+
   Scenario Outline: Check if product with name <mameOfProduct> and price
     Given User opens '<homePage>' page
     And User accepts cookies
-    Then User checks '<mameOfProduct>'
+    When User moves a cursor to the tab menu Shoes
+    And User clicks All for men
+    Then User checks if products on page contains word '<mameOfProduct>' with a price greater than '<priceOfProduct>'
 
     Examples:
-      |homePage                                       |mameOfProduct|
-      |https://www.cropp.com/ua/uk/vzuttia/cholovikam |Кросівки     |
+      |homePage                    |mameOfProduct|priceOfProduct|
+      |https://www.cropp.com/ua/uk/|Кросівки     |500           |
+      |https://www.cropp.com/ua/uk/|Кеди         |200           |
