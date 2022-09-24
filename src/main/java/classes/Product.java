@@ -10,7 +10,7 @@ public class Product {
 		price = 0;
 	}
 
-	public Product(String name, Integer price) {
+	public Product(String name, int price) {
 		this.name = name;
 		this.price = price;
 	}
@@ -27,7 +27,7 @@ public class Product {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 }

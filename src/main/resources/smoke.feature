@@ -20,11 +20,12 @@ Feature: As a user
     And User accepts cookies
     When User moves a cursor to the tab menu Shoes
     And User clicks All for men
-    Then User checks if the elements on page contains word '<keyWord>'more than '<times>' times
+    Then User checks if the elements on page contains word '<keyWord>' more than ten times
 
     Examples:
-      |homePage                    |keyWord|times |
-      |https://www.cropp.com/ua/uk/|Кеди   |10    |
+      |homePage                    |keyWord |
+      |https://www.cropp.com/ua/uk/|Кеди    |
+      |https://www.cropp.com/ua/uk/|Кросівки|
 
 
   Scenario Outline: Check that location and language change working correctly
@@ -40,11 +41,11 @@ Feature: As a user
       |https://www.cropp.com/ua/uk/|Italy   |https://www.cropp.com/it/it/|
 
 
-  Scenario Outline: Check if product with name ... and price
+  Scenario Outline: Check if product with name <mameOfProduct> and price
     Given User opens '<homePage>' page
     And User accepts cookies
-    Then User checks
+    Then User checks '<mameOfProduct>'
 
     Examples:
-      |homePage                                       |
-      |https://www.cropp.com/ua/uk/vzuttia/cholovikam |
+      |homePage                                       |mameOfProduct|
+      |https://www.cropp.com/ua/uk/vzuttia/cholovikam |Кросівки     |

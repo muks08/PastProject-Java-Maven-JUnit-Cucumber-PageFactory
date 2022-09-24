@@ -73,12 +73,12 @@ public class DefinitionSteps {
         allMenShoesPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
     }
 
-	@Then("User checks if the elements on page contains word {string}more than {string} times")
-	public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTimesTimes(String keyWord, String times) {
-		List<WebElement> allProductName = allMenShoesPage.getAllProductName();
-		long count = allProductName.stream().filter(element -> element.getText().contains(keyWord)).count();
-		assertTrue(count > Integer.parseInt(times));
-	}
+    @Then("User checks if the elements on page contains word {string} more than ten times")
+    public void userChecksIfTheElementsOnPageContainsWordKeyWordMoreThanTenTimes(String keyWord) {
+        List<WebElement> allProductName = allMenShoesPage.getAllProductName();
+        long count = allProductName.stream().filter(element -> element.getText().contains(keyWord)).count();
+        assertTrue(count > 10);
+    }
 
     @When("User clicks Language button")
     public void userClicksLanguageButton() {
@@ -99,8 +99,8 @@ public class DefinitionSteps {
         assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
 
-    @Then("User checks")
-    public void userChecks() {
+    @Then("User checks {string}")
+    public void userChecksMameOfProduct(String mameOfProduct) {
         allMenShoesPage = pageFactoryManager.getAllMenShoesPage();
         allMenShoesPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
         List<Product> allProducts = allMenShoesPage.getProductsList
@@ -114,7 +114,7 @@ public class DefinitionSteps {
         Predicate<Product> byPrice = product -> product.getPrice() < 500;
         long count = allProducts.stream()
                 .filter(product -> product.getName()
-                .contains("Кросівки")).filter(byPrice)
+                        .contains(mameOfProduct)).filter(byPrice)
                 .count();
         assertEquals(0, count);
     }
