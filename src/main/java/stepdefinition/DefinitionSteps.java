@@ -27,8 +27,8 @@ public class DefinitionSteps {
 	WebDriver driver;
 	HomePage homePage;
 	AllMenShoesPage allMenShoesPage;
-
 	AllStoresPage allStoresPage;
+	SearchPage searchPage;
 	PageFactoryManager pageFactoryManager;
 
 	@Before
@@ -99,7 +99,6 @@ public class DefinitionSteps {
 		assertEquals(driver.getCurrentUrl(), expectedUrl);
 	}
 
-
 	@Then("User checks that products on page contains word {string} have a price greater than {string}")
 	public void userChecksThatProductsOnPageContainsWordMameOfProductHaveAPriceGreaterThanPriceOfProduct(
 			String mameOfProduct, String price) {
@@ -110,5 +109,25 @@ public class DefinitionSteps {
 		Predicate<Product> byPrice = product -> product.getPrice() < Integer.parseInt(price);
 		long count = allProducts.stream().filter(product -> product.getName().contains(mameOfProduct)).filter(byPrice).count();
 		assertEquals(0, count);
+	}
+
+	@When("User clicks on the Search button")
+	public void userClicksOnTheSearchButton() {
+		homePage.clickOnSearchButton();
+		searchPage = pageFactoryManager.getSearchPage();
+	}
+
+	@And("User inputs the {string} search request")
+	public void userInputsTheSearchTextSearchRequest(String searchText) {
+		searchPage.WebDriverImplicitlyWait(3);
+		searchPage.inputTextToSearchField(searchText);
+		searchPage.WebDriverImplicitlyWait(10);
+	}
+
+	@Then("User checks if products on Search page contains search request {string} more than {string} times")
+	public void userChecksIfProductsOnSearchPageContainsSearchRequestSearchTextMoreThanTimesTimes(String searchText, String times) {
+		List<WebElement> allProductName = searchPage.getAllProductName();
+		long count = allProductName.stream().filter(element -> element.getText().contains(searchText)).count();
+		assertTrue(count > Integer.parseInt(times));
 	}
 }

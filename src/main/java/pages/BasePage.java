@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class BasePage {
 	protected WebDriver driver;
 
@@ -29,6 +31,10 @@ public class BasePage {
 	public void waitForPageLoadComplete(long timeToWait) {
 		new WebDriverWait(driver, timeToWait).until(
 				webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+	}
+
+	public void WebDriverImplicitlyWait(long time) {
+		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 	}
 
 	public void waitForAjaxComplete(long timeToWait){

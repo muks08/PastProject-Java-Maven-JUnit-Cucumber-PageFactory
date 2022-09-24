@@ -6,11 +6,22 @@ import pages.*;
 public class PageFactoryManager {
 	WebDriver driver;
 
-	public PageFactoryManager(WebDriver driver) {this.driver = driver;}
+	public PageFactoryManager(WebDriver driver) {
+		this.driver = driver;
+	}
 
-	public HomePage getHomePage(){return new HomePage(driver);}
+	public HomePage getHomePage(){
+		return new HomePage(driver);
+	}
 
-	public AllMenShoesPage getAllMenShoesPage(){return new AllMenShoesPage(driver);}
+	public AllMenShoesPage getAllMenShoesPage(){
+		return new AllMenShoesPage(driver);
+	}
 
-	public AllStoresPage getAllStoresPage(){return new AllStoresPage(driver);}
+	public AllStoresPage getAllStoresPage() {
+		return new AllStoresPage(driver);
+	}
+	public SearchPage getSearchPage() {
+		return new SearchPage(driver);
+	}
 }

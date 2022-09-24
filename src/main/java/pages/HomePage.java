@@ -23,6 +23,9 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//span[@data-testid='store-switcher']")
 	private WebElement languageButton;
 
+	@FindBy(xpath = "//input[@class='input__InputText-sc-1mxde2b-0 hjxLSD']")
+	private WebElement searchButton;
+
 	public void openHomePage(String url) {
 		driver.get(url);
 	}
@@ -41,4 +44,8 @@ public class HomePage extends BasePage {
 
 	public void changeLanguage() {
 		languageButton.click();}
+
+	public void clickOnSearchButton() {
+		searchButton.click();
+	}
 }
