@@ -1,14 +1,12 @@
 package pages;
 
-import classes.Product;
+import interfaces.IProduct;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.ArrayList;
 import java.util.List;
 
-public class AllMenShoesPage extends BasePage {
+public class AllMenShoesPage extends BasePage implements IProduct {
 
 	public AllMenShoesPage(WebDriver driver) {
 		super(driver);
@@ -23,24 +21,12 @@ public class AllMenShoesPage extends BasePage {
 	@FindBy(xpath = "//figcaption[@class='sc-hKgJUU dGyDEC']")
 	private List<WebElement> allProductNameWithPrice;
 
+	@Override
 	public List<WebElement> getAllProductName() {
 		return allProductName;
 	}
-
+	@Override
 	public List<WebElement> getAllProductPrice() {
 		return allProductPrice;
-	}
-
-	public List<Product> getProductsList(List<WebElement> listName, List<WebElement> listPrice) {
-		List<Product> productList = new ArrayList<>();
-		for (int i = 0; i < listName.size(); i++) {
-			Product temp = new Product();
-			temp.setName(listName.get(i).getText());
-			temp.setPrice(Integer.parseInt((listPrice.get(i)
-					.getText().replaceAll(" ", "")
-					.split("U", 2)[0])));
-			productList.add(temp);
-		}
-		return productList;
 	}
 }

@@ -46,7 +46,7 @@ Feature: As a user
     And User accepts cookies
     When User moves a cursor to the tab menu Shoes
     And User clicks All for men
-    Then User checks if products on page contains word '<mameOfProduct>' with a price greater than '<priceOfProduct>'
+    Then User checks that products on page contains word '<mameOfProduct>' have a price greater than '<priceOfProduct>'
 
     Examples:
       |homePage                    |mameOfProduct|priceOfProduct|
