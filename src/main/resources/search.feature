@@ -10,8 +10,8 @@ Feature: As a user
     And User accepts cookies
     When User clicks on the Search button
     And User inputs the '<searchText>' search request
-    Then User checks if products on Search page contains search request '<searchText>' more than '<times>' times
+    Then User checks if products on Search page contains search request '<searchText>' more than ten times
 
     Examples:
-      |homePage                    |searchText    |times|
-      |https://www.cropp.com/ua/uk/|Rick and Morty|10   |
+      |homePage                    |searchText    |
+      |https://www.cropp.com/ua/uk/|Rick and Morty|
