@@ -23,19 +23,20 @@ public class SearchPage extends BasePage implements IProduct {
 	@FindBy(xpath = "//input[@type='search']")
 	private WebElement inputField;
 
-	@FindBy(xpath = "//iframe[@id='__JSBridgeIframe_SetResult_1.0__']")
+	@FindBy(id = "__JSBridgeIframe_SetResult_1.0__")
 	private WebElement searchFrameEl1;
-	@FindBy(xpath = "//iframe[@id='__JSBridgeIframe_1.0__']")
+	@FindBy(id = "__JSBridgeIframe_1.0__")
 	private WebElement searchFrameEl2;
-	@FindBy(xpath = "//iframe[@id='__JSBridgeIframe__']")
+	@FindBy(id = "__JSBridgeIframe__")
 	private WebElement searchFrameEl3;
-	@FindBy(xpath = "//iframe[@id='__JSBridgeIframe_SetResult__']")
+	@FindBy(id = "__JSBridgeIframe_SetResult__")
 	private WebElement searchFrameEl4;
 
 	private String searchFrame1 = "__JSBridgeIframe_SetResult_1.0__";
 	private String searchFrame2 = "__JSBridgeIframe_1.0__";
 	private String searchFrame3 = "__JSBridgeIframe__";
 	private String searchFrame4 = "__JSBridgeIframe_SetResult__";
+
 
 	@Override
 	public List<WebElement> getAllProductName() {
@@ -51,6 +52,6 @@ public class SearchPage extends BasePage implements IProduct {
 	}
 
 	public void switchToSearchFrame() {
-		driver.switchTo().frame(searchFrameEl4);
+		driver.switchTo().frame(4);
 	}
 }

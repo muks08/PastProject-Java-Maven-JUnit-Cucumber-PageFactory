@@ -22,6 +22,7 @@ public class AllMenShoesPage extends BasePage implements IProduct {
 	public List<WebElement> getAllProductName() {
 		return allProductName;
 	}
+
 	@Override
 	public List<WebElement> getAllProductPrice() {
 		return allProductPrice;

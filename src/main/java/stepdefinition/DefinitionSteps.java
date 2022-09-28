@@ -131,9 +131,9 @@ public class DefinitionSteps {
 		searchPage.switchToSearchFrame();
 		List<WebElement> allProductName = searchPage.getAllProductName();
 		allProductName.forEach(x -> System.out.println(x.getText()));
-//		long count = allProductName.stream()
-//				.filter(element -> element.getText()
-//				.contains(searchText)).count();
-//		assertTrue(count > 5);
+		long count = allProductName.stream()
+				.filter(element -> element.getText()
+				.contains(searchText)).count();
+		assertTrue(count > 5);
 	}
 }
