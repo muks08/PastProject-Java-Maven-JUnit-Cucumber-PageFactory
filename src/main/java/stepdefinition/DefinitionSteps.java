@@ -154,6 +154,8 @@ public class DefinitionSteps {
 
 	@Then("User checks that all product prices was sorted by ascending")
 	public void userChecksThatAllProductPricesWasSortedByAscending() {
+		driver.navigate().refresh();
+		allMenShoesPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
 		List<Product> allProducts = allMenShoesPage.getProductsList
 				(allMenShoesPage.getAllProductName(), allMenShoesPage.getAllProductPrice());
 		assertTrue(allMenShoesPage.ifSortedAscendingByPrice(allProducts));
