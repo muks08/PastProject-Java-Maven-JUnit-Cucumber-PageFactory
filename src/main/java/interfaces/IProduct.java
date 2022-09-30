@@ -18,7 +18,7 @@ public interface IProduct {
 
 	default List<Product> getProductsList(List<WebElement> listName, List<WebElement> listPrice) {
 		List<Product> productList = new ArrayList<>();
-		for (int i = 0; i < listName.size(); i++) {
+		for(int i = 0; i < listName.size(); i++) {
 			Product temp = new Product();
 			temp.setName(listName.get(i));
 			temp.setPrice(listPrice.get(i));

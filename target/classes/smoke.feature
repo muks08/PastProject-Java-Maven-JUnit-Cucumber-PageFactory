@@ -52,3 +52,18 @@ Feature: As a user
       |homePage                    |mameOfProduct|priceOfProduct|
       |https://www.cropp.com/ua/uk/|Кросівки     |500           |
       |https://www.cropp.com/ua/uk/|Кеди         |200           |
+
+
+  Scenario Outline: Check that filter works correctly
+    Given User opens '<homePage>' page
+    And User accepts cookies
+    And User moves a cursor to the tab menu Shoes
+    And User clicks All for men
+    When User clicks Sort By
+    And User clicks Sort By ascending price
+    And User clicks Sorting button
+    Then User checks that all product prices was sorted by ascending
+
+    Examples:
+      |homePage                    |
+      |https://www.cropp.com/ua/uk/|

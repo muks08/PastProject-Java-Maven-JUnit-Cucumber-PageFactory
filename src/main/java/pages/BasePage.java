@@ -19,6 +19,18 @@ public class BasePage {
 	@FindBy(xpath = "//button[@id='cookiebotDialogOkButton']")
 	private WebElement cookiebotDialogOkButton;
 
+	@FindBy(xpath = "//label[contains(text(),'Сортувати за')]")
+	private WebElement sortBy;
+
+	@FindBy(xpath = "//label[@for='sortBy-0']")
+	private WebElement sortByAscendingPrice;
+
+	@FindBy(xpath = "//label[@for='sortBy-1']")
+	private WebElement sortByDescendingPrice;
+
+	@FindBy(xpath = "//button[contains(text(),'Сортувати')]")
+	private WebElement sortingButton;
+
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -26,6 +38,22 @@ public class BasePage {
 
 	public void cookieAccept() {
 		if (cookieBanner.isDisplayed())cookiebotDialogOkButton.click();
+	}
+
+	public void clickOnSortBy() {
+		sortBy.click();
+	}
+
+	public void clickOnSortByAscendingPrice() {
+		sortByAscendingPrice.click();
+	}
+
+	public void clickOnSortByDescendingPrice() {
+		sortByDescendingPrice.click();
+	}
+
+	public void clickOnSortingButton() {
+		sortingButton.click();
 	}
 
 	public void waitForPageLoadComplete(long timeToWait) {

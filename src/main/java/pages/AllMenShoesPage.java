@@ -1,12 +1,13 @@
 package pages;
 
+import interfaces.IFilter;
 import interfaces.IProduct;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
-public class AllMenShoesPage extends BasePage implements IProduct {
+public class AllMenShoesPage extends BasePage implements IProduct, IFilter {
 
 	public AllMenShoesPage(WebDriver driver) {
 		super(driver);

@@ -22,7 +22,7 @@ public class Product {
 	}
 
 	public void setName(WebElement name) {
-		this.name = name.getText();;
+		this.name = name.getText();
 	}
 
 	public Integer getPrice() {
@@ -30,8 +30,8 @@ public class Product {
 	}
 
 	public void setPrice(WebElement price) {
-		this.price = Integer.parseInt((price.getText()
+		this.price = Integer.parseInt(price.getText()
 				.replaceAll(" ", "")
-				.split("U", 2)[0]));
+				.split("U", 2)[0]);
 	}
 }

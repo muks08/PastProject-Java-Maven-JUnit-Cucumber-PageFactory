@@ -136,4 +136,26 @@ public class DefinitionSteps {
 				.contains(searchText)).count();
 		assertTrue(count > 5);
 	}
+
+	@When("User clicks Sort By")
+	public void userClicksSortBy() {
+		allMenShoesPage.clickOnSortBy();
+	}
+
+	@And("User clicks Sort By ascending price")
+	public void userClicksSortByAscendingPrice() {
+		allMenShoesPage.clickOnSortByAscendingPrice();
+	}
+
+	@And("User clicks Sorting button")
+	public void userClicksSortingButton() {
+		allMenShoesPage.clickOnSortingButton();
+	}
+
+	@Then("User checks that all product prices was sorted by ascending")
+	public void userChecksThatAllProductPricesWasSortedByAscending() {
+		List<Product> allProducts = allMenShoesPage.getProductsList
+				(allMenShoesPage.getAllProductName(), allMenShoesPage.getAllProductPrice());
+		assertTrue(allMenShoesPage.ifSortedAscendingByPrice(allProducts));
+	}
 }
